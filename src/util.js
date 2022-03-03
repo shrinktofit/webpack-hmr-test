@@ -1,20 +1,22 @@
 
-const notifyExecution = (url) => {
+export const notifyExecution = (url) => {
     console.log(`[!!Execute] ${url}`);
 };
 
-const notifyInvokeUpdateHandler = (url, dep) => {
-    console.log(`[!!HandleAccept] ${url} : ${dep ? dep : '<self>'}`);
+export const notifyInvokeUpdateHandler = (url, dep) => {
+    console.log(`[!!HandleAcceptUpdate] ${url} : ${dep ? dep : '<self>'}`);
 };
 
-const notifyDispose = (url) => {
+export const notifyInvokeAcceptErrorHandler = (url, dep) => {
+    console.log(`[!!HandleAcceptError] ${url} : ${dep ? dep : '<self>'}`);
+};
+
+export const notifyInvokeSelfAcceptErrorHandler = (url, err) => {
+    console.log(`[!!HandleSelfAcceptError] ${url}: ${err}`);
+};
+
+export const notifyDispose = (url) => {
     console.log(`[!!Dispose] ${url}`);
 };
 
 notifyExecution(import.meta.url);
-
-module.exports.notifyExecution = notifyExecution;
-
-module.exports.notifyInvokeUpdateHandler = notifyInvokeUpdateHandler;
-
-module.exports.notifyDispose = notifyDispose;
